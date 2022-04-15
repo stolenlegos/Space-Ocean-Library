@@ -3,7 +3,157 @@ guid: 358aa416e743d4d4da03a38868fccb56
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aluminium
+    second: {fileID: 2100000, guid: 9681006489bee7643acaaeecdad17444, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aluminium.002
+    second: {fileID: 2100000, guid: f2812a4954c45264d9258bd0beb873f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_Mat
+    second: {fileID: 2100000, guid: d80623421ff5b284592409f170e72409, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_Mat.001
+    second: {fileID: 2100000, guid: 8b072ad15ba2c0c43955a00576596036, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_Mat.002
+    second: {fileID: 2100000, guid: c163117e0d896714180694fd017db191, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_Side
+    second: {fileID: 2100000, guid: e4f5fd5db38d4ca4faa2a5304acbb4aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_Side.001
+    second: {fileID: 2100000, guid: 14da43c2828d7fb488b50d87fee1078b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_Side.002
+    second: {fileID: 2100000, guid: 55c4c609e2db4ab418a1fed7d161a788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Caoutchouc
+    second: {fileID: 2100000, guid: d51330496b8ce13428a0aa282d6b6586, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: 06c43d611d3dff8419a101550b78800d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dimensions
+    second: {fileID: 2100000, guid: 1775d11d12da37d4297ebf2214484d15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fabric grey.001
+    second: {fileID: 2100000, guid: 41d0653585f07964893b6b6afdb78750, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 99e642be17ba1a043a15be4829056efd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Inox
+    second: {fileID: 2100000, guid: 002f491e10171aa45b42dc73e6e81e5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ivy leaf
+    second: {fileID: 2100000, guid: 5c113ff7edaaad0409719dd09404631e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ivy stem
+    second: {fileID: 2100000, guid: 7901f708fe6e3414ea61a5abacdd7f4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp_Bulb
+    second: {fileID: 2100000, guid: 59b70adc94b7c204a9b628e2cc2c7d27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp_base_material
+    second: {fileID: 2100000, guid: e65680bf9ca098942a4925e54eeb5598, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lampholder_material
+    second: {fileID: 2100000, guid: 4bb65d6eaddc1a0489089de7d30ee591, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lampshade_material
+    second: {fileID: 2100000, guid: 2b22f859fdab3d2488735afe432884bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lampstrings_material
+    second: {fileID: 2100000, guid: 187a7483a04cc6a4b8b134e12a76ba3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Matt paint white
+    second: {fileID: 2100000, guid: 3c977823988ccf443b47dd6a5b374158, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.001
+    second: {fileID: 2100000, guid: f0de7903d88bec54296d99113e05a18f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PVC white
+    second: {fileID: 2100000, guid: b26608c4775ab164297b4637beb64dd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Random Pine parquet
+    second: {fileID: 2100000, guid: 27b917442dae13d47878f41ee67f5f98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Random Walnut
+    second: {fileID: 2100000, guid: 03fc4ad3ba133ae4db78d4e4f6a8d438, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Random blue tiles
+    second: {fileID: 2100000, guid: 395dfbfe8e4b4c24aa1c417d5d69f037, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Random grey wood
+    second: {fileID: 2100000, guid: bfe427e3e08d58243b9cf42ab2aa2e39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Realistic Glass PLANE.001
+    second: {fileID: 2100000, guid: 02c9f2674b3e8424ea4db03d4f01f165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stucco white
+    second: {fileID: 2100000, guid: 37d7b32386d4fca49a27f8926924670a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
