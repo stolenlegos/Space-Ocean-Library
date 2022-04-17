@@ -8,7 +8,7 @@ public class MakeVisibleShelves : MonoBehaviour
   private bool neverDone = true;
 
     void OnBecameInvisible(){
-      if(neverDone && VisibilityManager.allowDeskandSkullVisible) {
+      if(neverDone && VisibilityManager.allowShelvesVisible) {
         replacement.SetActive(true);
         VisibilityManager.IncreaseCount();
         neverDone = false;

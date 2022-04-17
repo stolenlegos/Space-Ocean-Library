@@ -8,7 +8,7 @@ public class MakeVisibleFurniture : MonoBehaviour
   private bool neverDone = true;
 
     void OnBecameInvisible(){
-      if(neverDone && VisibilityManager.allowDeskandSkullVisible) {
+      if(neverDone && VisibilityManager.allowFurniatureVisible) {
         foreach (GameObject obj in replacement) {
           obj.SetActive(true);
         }
