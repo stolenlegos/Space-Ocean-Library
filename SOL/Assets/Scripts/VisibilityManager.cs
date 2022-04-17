@@ -45,6 +45,7 @@ public class VisibilityManager : MonoBehaviour
     void Update(){
       if (visibleItems == 6) {
         allowDeskandSkullVisible = true;
+        //make water rise first time (appear)
       } else if (visibleItems == 8){
         Debug.Log("Desk and water visible");
         //play skull AudioClipPlayable
