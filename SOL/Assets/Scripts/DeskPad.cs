@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DeskPad : MonoBehaviour
 {
+    public VisibilityManager vm;
+
     private void Awake () {
       DeskEvents.OnDeskNotify += OnDeskAction;
     }
