@@ -13,6 +13,21 @@ public class DeskPad : MonoBehaviour
         //this will enable the correect hologram. Hologram itself will have coroutine to hide itself once it ends.
         Debug.Log("You have put the skull on the desk.");
       }
+
+      if (obj.tag == "Radio") {
+        //this will enable the correect hologram. Hologram itself will have coroutine to hide itself once it ends.
+        Debug.Log("You have put the radio on the desk.");
+      }
+
+      if (obj.tag == "Plush") {
+        //this will enable the correect hologram. Hologram itself will have coroutine to hide itself once it ends.
+        Debug.Log("You have put the plush on the desk.");
+      }
+
+      if (obj.tag == "Skull_Second") {
+        //this will enable the correect hologram. Hologram itself will have coroutine to hide itself once it ends.
+        Debug.Log("You have put the other skull on the desk.");
+      }
     }
 
     private void OnDestroy(){
