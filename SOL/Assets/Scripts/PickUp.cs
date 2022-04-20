@@ -18,7 +18,7 @@ public class PickUp : MonoBehaviour
 
         Debug.DrawRay(transform.position, transform.forward, Color.red);
         if (Physics.Raycast(ray, out hit)) {
-          if(hit.collider.tag == "Skull") {
+          if(hit.collider.tag == "Skull" || hit.collider.tag == "Radio" || hit.collider.tag == "Plush" || hit.collider.tag == "Skull_Second") {
             lookingAtThing = true;
           pickObj = hit.collider.gameObject;
           } else {

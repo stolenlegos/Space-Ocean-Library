@@ -3635,6 +3635,7 @@ GameObject:
   - component: {fileID: 8652202533908786854}
   - component: {fileID: 3222900336563809704}
   - component: {fileID: 1716237583313238602}
+  - component: {fileID: 1435725775865328354}
   m_Layer: 0
   m_Name: Wall.002
   m_TagString: Untagged
@@ -3722,6 +3723,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacement: {fileID: 6295483005084425884}
+--- !u!114 &1435725775865328354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716237583313238603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3574ef4d6fb204b94d0e49867e7463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replacement: {fileID: 588146097120743211}
 --- !u!1 &1819208837958281853
 GameObject:
   m_ObjectHideFlags: 0

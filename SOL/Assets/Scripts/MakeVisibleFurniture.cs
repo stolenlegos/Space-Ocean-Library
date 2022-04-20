@@ -8,7 +8,7 @@ public class MakeVisibleFurniture : MonoBehaviour
   private bool neverDone = true;
 
     void OnBecameInvisible(){
-      if(neverDone && VisibilityManager.allowFurniatureVisible) {
+      if(neverDone && VisibilityManager.allowShelvesVisible) {
         foreach (GameObject obj in replacement) {
           obj.SetActive(true);
         }

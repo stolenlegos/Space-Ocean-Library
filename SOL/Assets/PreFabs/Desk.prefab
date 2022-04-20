@@ -169,3 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f3872ba6336d54495cd316ef8da5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vm: {fileID: 0}
+  firstMem: {fileID: 0}
+  secondMem: {fileID: 0}
+  thirdMem: {fileID: 0}
+  fourthMem: {fileID: 0}

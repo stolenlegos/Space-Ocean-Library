@@ -13,9 +13,13 @@ public class VisibilityManager : MonoBehaviour
     public float pickUpSkullDialogueLength;
     public float firstMemoryLength;
     public float postFirstMemlength;
+    public float preSecondMemoryLength;
+    public float SecondMemoryLength;
+    public float postSecondMemlength;
+    public float ThirdMemoryLength;
+    public float postThirdMemlength;
 
     public static bool allowWallsVisible;
-    public static bool allowFurniatureVisible;
     public static bool allowDeskandSkullVisible;
     public static bool firstSkullAudioStarted;
     public static bool firstSkullAudioComplete;
@@ -23,14 +27,20 @@ public class VisibilityManager : MonoBehaviour
     public static bool pickUpSkullAudioComplete;
     public static bool allowShelvesVisible;
     public static bool firstMemoryEnd;
+    public static bool preSecondMemoryStart;
+    public static bool preSecondMemoryEnd;
+    public static bool secondMemoryEnd;
+    public static bool ThirdMemoryEnd;
 
     public static bool allowPickUp;
+    public static bool skullUsed;
+    public static bool plushUsed;
+    public static bool radioUsed;
 
 
     void Awake()
     {
         allowWallsVisible = false;
-        allowFurniatureVisible = false;
         allowDeskandSkullVisible = false;
         firstSkullAudioStarted = false;
         firstSkullAudioComplete = false;
@@ -38,7 +48,15 @@ public class VisibilityManager : MonoBehaviour
         pickUpSkullAudioComplete = false;
         allowShelvesVisible = false;
         firstMemoryEnd = false;
+        preSecondMemoryStart = false;
+        preSecondMemoryEnd = false;
+        secondMemoryEnd = false;
+        ThirdMemoryEnd = false;
+
         allowPickUp = true;
+        skullUsed = false;
+        plushUsed = false;
+        radioUsed = false;
 
         visibleItems = 0;
 
@@ -58,18 +76,15 @@ public class VisibilityManager : MonoBehaviour
       } else if (visibleItems == 8  && !firstSkullAudioStarted){
         //play skull AudioClipPlayable
         StartCoroutine(FirstSkullDialogueTimer());
+      } else if (visibleItems == 13 && !preSecondMemoryStart){
+        StartCoroutine(PreSecondMemoryTimer());
       }
 
-      if (firstSkullAudioComplete && !pickUpSkullAudioComplete && pickUp.heldObj.tag == "Skull") {
+      if (firstSkullAudioComplete && !pickUpSkullAudioStarted && pickUp.heldObj.tag == "Skull") {
         StartCoroutine(PickUpFirstSkull());
       }
-      Debug.Log("Allow walls visible" + allowWallsVisible);
-      Debug.Log("Allow furniature visible" + allowFurniatureVisible);
-      Debug.Log("allow desk visible" + allowDeskandSkullVisible);
-      // Debug.Log("first skull audio complete" + firstSkullAudioComplete);
-      // Debug.Log("allow shelves visible" + allowShelvesVisible);
-      // Debug.Log("first memory complete" + firstMemoryEnd);
 
+      //Debug.Log(visibleItems);
     }
 
     public static void IncreaseCount() {
@@ -78,6 +93,17 @@ public class VisibilityManager : MonoBehaviour
 
     public void ShowFirstMemory(){
       StartCoroutine(FirstMemoryTimer());
+      skullUsed = true;
+    }
+
+    public void ShowSecondMemory(GameObject obj) {
+      if(obj.tag == "Plush") {
+        StartCoroutine(ThirdMemoryTimer());
+        plushUsed = true;
+      } else if (obj.tag == "Radio"){
+        StartCoroutine(SecondMemoryTimer());
+        radioUsed = true;
+      }
     }
 
     private IEnumerator IntroSoundsTimer() {
@@ -106,12 +132,44 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(firstMemoryLength);
       firstMemoryEnd = true;
       Debug.Log("first memory finished");
-      //make first memory invisible here
       //make skull able to be picked up
       allowPickUp = true;
       yield return new WaitForSeconds(postFirstMemlength);
       Debug.Log("Finish first memory post dialogue");
       //raise water second time here
       allowShelvesVisible = true;
+    }
+
+    private IEnumerator PreSecondMemoryTimer(){
+      preSecondMemoryStart = true;
+      yield return new WaitForSeconds(preSecondMemoryLength);
+      preSecondMemoryEnd = true;
+      Debug.Log("pre second memory finished");
+    }
+
+    private IEnumerator SecondMemoryTimer(){
+      //make items unable to be picked up
+      allowPickUp = false;
+      yield return new WaitForSeconds(SecondMemoryLength);
+      secondMemoryEnd = true;
+      Debug.Log("second memory finished");
+      //make item able to be picked up
+      allowPickUp = true;
+      yield return new WaitForSeconds(postSecondMemlength);
+      Debug.Log("Finish second memory post dialogue");
+      //raise water third time here;
+    }
+
+    private IEnumerator ThirdMemoryTimer(){
+      //make items unable to be picked up
+      allowPickUp = false;
+      yield return new WaitForSeconds(ThirdMemoryLength);
+      ThirdMemoryEnd = true;
+      Debug.Log("third memory finished");
+      //make item able to be picked up
+      allowPickUp = true;
+      yield return new WaitForSeconds(postThirdMemlength);
+      Debug.Log("Finish third memory post dialogue");
+      //raise water third time here;
     }
 }
