@@ -51,13 +51,13 @@ public class VisibilityManager : MonoBehaviour
         StartCoroutine(FirstSkullDialogueTimer());
         allowPickUpSkull = true;
       }
-      Debug.Log("Allow walls visible" + allowWallsVisible);
-      Debug.Log("Allow furniature visible" + allowFurniatureVisible);
-      Debug.Log("allow desk visible" + allowDeskandSkullVisible);
-      Debug.Log("allow skull pick up" + allowPickUpSkull);
-      Debug.Log("first skull audio complete" + firstSkullAudioComplete);
-      Debug.Log("allow shelves visible" + allowShelvesVisible);
-      Debug.Log("first memory complete" + firstMemoryEnd);
+      //Debug.Log("Allow walls visible" + allowWallsVisible);
+      //Debug.Log("Allow furniature visible" + allowFurniatureVisible);
+      //Debug.Log("allow desk visible" + allowDeskandSkullVisible);
+      // Debug.Log("allow skull pick up" + allowPickUpSkull);
+      // Debug.Log("first skull audio complete" + firstSkullAudioComplete);
+      // Debug.Log("allow shelves visible" + allowShelvesVisible);
+      // Debug.Log("first memory complete" + firstMemoryEnd);
 
     }
 
