@@ -11,8 +11,9 @@ public class DeskPad : MonoBehaviour
     }
 
     private void OnDeskAction (GameObject obj){
-      if (obj.tag == "Skull") {
+      if (obj.tag == "Skull" && VisibilityManager.pickUpSkullAudioComplete) {
         //this will enable the correect hologram. Hologram itself will have coroutine to hide itself once it ends.
+        vm.ShowFirstMemory();
         Debug.Log("You have put the skull on the desk.");
       }
 

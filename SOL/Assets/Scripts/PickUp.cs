@@ -7,7 +7,7 @@ public class PickUp : MonoBehaviour
 {
   private bool lookingAtThing;
   private GameObject pickObj;
-  private GameObject heldObj;
+  public GameObject heldObj;
   public Transform destination;
   private bool holdingSomething;
 
@@ -26,7 +26,7 @@ public class PickUp : MonoBehaviour
           }
         }
 
-        Debug.Log(lookingAtThing);
+        //Debug.Log(lookingAtThing);
     }
 
     public void GrabObj(InputAction.CallbackContext ctx) {
@@ -38,12 +38,14 @@ public class PickUp : MonoBehaviour
         horb.useGravity = false;
         horb.isKinematic = true;
         holdingSomething = true;
+        //send message saying picked up object
       } else if(ctx.performed && holdingSomething) {
         heldObj.transform.SetParent(null);
         Rigidbody horb = heldObj.GetComponent<Rigidbody>();
         horb.useGravity = true;
         horb.isKinematic = false;
         holdingSomething = false;
+        heldObj = GameObject.Find("Nothing (Do Not Delete)");
       }
     }
 }
