@@ -24,6 +24,8 @@ public class VisibilityManager : MonoBehaviour
     public static bool allowShelvesVisible;
     public static bool firstMemoryEnd;
 
+    public static bool allowPickUp;
+
 
     void Awake()
     {
@@ -36,6 +38,7 @@ public class VisibilityManager : MonoBehaviour
         pickUpSkullAudioComplete = false;
         allowShelvesVisible = false;
         firstMemoryEnd = false;
+        allowPickUp = true;
 
         visibleItems = 0;
 
@@ -99,11 +102,13 @@ public class VisibilityManager : MonoBehaviour
 
     private IEnumerator FirstMemoryTimer(){
       //make skull unable to be picked up
+      allowPickUp = false;
       yield return new WaitForSeconds(firstMemoryLength);
       firstMemoryEnd = true;
       Debug.Log("first memory finished");
       //make first memory invisible here
       //make skull able to be picked up
+      allowPickUp = true;
       yield return new WaitForSeconds(postFirstMemlength);
       Debug.Log("Finish first memory post dialogue");
       //raise water second time here

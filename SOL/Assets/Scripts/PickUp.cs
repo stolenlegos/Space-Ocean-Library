@@ -30,7 +30,7 @@ public class PickUp : MonoBehaviour
     }
 
     public void GrabObj(InputAction.CallbackContext ctx) {
-      if(ctx.performed && lookingAtThing && !holdingSomething){
+      if(ctx.performed && lookingAtThing && !holdingSomething && VisibilityManager.allowPickUp){
         heldObj = pickObj;
         heldObj.transform.position = destination.position;
         heldObj.transform.SetParent(this.gameObject.transform);
