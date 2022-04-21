@@ -18,6 +18,9 @@ public class VisibilityManager : MonoBehaviour
     public float postSecondMemlength;
     public float ThirdMemoryLength;
     public float postThirdMemlength;
+    public float preFourthMemoryLength;
+    public float FourthMemoryLength;
+    public float postFourthMemlength;
 
     public static bool allowWallsVisible;
     public static bool allowDeskandSkullVisible;
@@ -31,11 +34,15 @@ public class VisibilityManager : MonoBehaviour
     public static bool preSecondMemoryEnd;
     public static bool secondMemoryEnd;
     public static bool ThirdMemoryEnd;
+    public static bool preFourthMemoryStart;
+    public static bool fourthMemoryEnd;
+    public static bool preFourthMemoryEnd;
 
     public static bool allowPickUp;
     public static bool skullUsed;
     public static bool plushUsed;
     public static bool radioUsed;
+    public static bool secondSkullUsed;
 
 
     void Awake()
@@ -52,11 +59,15 @@ public class VisibilityManager : MonoBehaviour
         preSecondMemoryEnd = false;
         secondMemoryEnd = false;
         ThirdMemoryEnd = false;
+        preFourthMemoryStart = false;
+        preFourthMemoryEnd = false;
+        fourthMemoryEnd = false;
 
         allowPickUp = true;
         skullUsed = false;
         plushUsed = false;
         radioUsed = false;
+        secondSkullUsed = false;
 
         visibleItems = 0;
 
@@ -78,6 +89,8 @@ public class VisibilityManager : MonoBehaviour
         StartCoroutine(FirstSkullDialogueTimer());
       } else if (visibleItems == 13 && !preSecondMemoryStart){
         StartCoroutine(PreSecondMemoryTimer());
+      } else if (visibleItems == 14 && !preFourthMemoryStart){
+        StartCoroutine(PreFourthMemoryTimer());
       }
 
       if (firstSkullAudioComplete && !pickUpSkullAudioStarted && pickUp.heldObj.tag == "Skull") {
@@ -104,6 +117,11 @@ public class VisibilityManager : MonoBehaviour
         StartCoroutine(SecondMemoryTimer());
         radioUsed = true;
       }
+    }
+
+    public void ShowFourthMemory() {
+      secondSkullUsed = true;
+      StartCoroutine(FourthMemoryTimer());
     }
 
     private IEnumerator IntroSoundsTimer() {
@@ -170,6 +188,26 @@ public class VisibilityManager : MonoBehaviour
       allowPickUp = true;
       yield return new WaitForSeconds(postThirdMemlength);
       Debug.Log("Finish third memory post dialogue");
+      //raise water third time here;
+    }
+
+    private IEnumerator PreFourthMemoryTimer(){
+      preFourthMemoryStart = true;
+      yield return new WaitForSeconds(preFourthMemoryLength);
+      Debug.Log("Finish pre fourth Memory");
+      preFourthMemoryEnd = true;
+    }
+
+    private IEnumerator FourthMemoryTimer(){
+      //make items unable to be picked up
+      allowPickUp = false;
+      yield return new WaitForSeconds(FourthMemoryLength);
+      fourthMemoryEnd = true;
+      Debug.Log("fourth memory finished");
+      //make item able to be picked up
+      allowPickUp = true;
+      yield return new WaitForSeconds(postFourthMemlength);
+      Debug.Log("Finish Fourth memory post dialogue");
       //raise water third time here;
     }
 }
