@@ -7,10 +7,15 @@ public class VisibilityManager : MonoBehaviour
     public List<GameObject> HideThisList = new List<GameObject>();
     public PickUp pickUp;
     public GameObject mem1Holo;
+    public GameObject mem1HoloMesh;
     public GameObject mem2Holo;
+    public GameObject mem2HoloMesh;
     public GameObject mem3Holo;
+    public GameObject mem3HoloMesh;
     public GameObject mem4Holo;
+    public GameObject mem4HoloMesh;
     public GameObject epiHolo;
+    public GameObject epiHoloMesh;
 
     public static int visibleItems;
     public float IntroSoundsTimeLength;
@@ -154,12 +159,13 @@ public class VisibilityManager : MonoBehaviour
       allowPickUp = false;
       mem1Holo.SetActive(true);
       yield return new WaitForSeconds(firstMemoryLength);
-      mem1Holo.SetActive(false);
+      mem1HoloMesh.SetActive(false);
       firstMemoryEnd = true;
       Debug.Log("first memory finished");
       //make skull able to be picked up
       allowPickUp = true;
       yield return new WaitForSeconds(postFirstMemlength);
+      mem1Holo.SetActive(false);
       Debug.Log("Finish first memory post dialogue");
       //raise water second time here
       allowShelvesVisible = true;
@@ -177,12 +183,13 @@ public class VisibilityManager : MonoBehaviour
       allowPickUp = false;
       mem2Holo.SetActive(true);
       yield return new WaitForSeconds(SecondMemoryLength);
-      mem2Holo.SetActive(false);
+      mem2HoloMesh.SetActive(false);
       secondMemoryEnd = true;
       Debug.Log("second memory finished");
       //make item able to be picked up
       allowPickUp = true;
       yield return new WaitForSeconds(postSecondMemlength);
+      mem2Holo.SetActive(false);
       Debug.Log("Finish second memory post dialogue");
       //raise water third time here;
     }
@@ -192,12 +199,13 @@ public class VisibilityManager : MonoBehaviour
       allowPickUp = false;
       mem3Holo.SetActive(true);
       yield return new WaitForSeconds(ThirdMemoryLength);
-      mem3Holo.SetActive(false);
+      mem3HoloMesh.SetActive(false);
       ThirdMemoryEnd = true;
       Debug.Log("third memory finished");
       //make item able to be picked up
       allowPickUp = true;
       yield return new WaitForSeconds(postThirdMemlength);
+      mem3Holo.SetActive(false);
       Debug.Log("Finish third memory post dialogue");
       //raise water third time here;
     }
@@ -214,12 +222,13 @@ public class VisibilityManager : MonoBehaviour
       allowPickUp = false;
       mem4Holo.SetActive(true);
       yield return new WaitForSeconds(FourthMemoryLength);
-      mem4Holo.SetActive(false);
+      mem4HoloMesh.SetActive(false);
       fourthMemoryEnd = true;
       Debug.Log("fourth memory finished");
       //make item able to be picked up
       allowPickUp = true;
       yield return new WaitForSeconds(postFourthMemlength);
+      mem4Holo.SetActive(false);
       Debug.Log("Finish Fourth memory post dialogue");
       //raise water third time here;
     }
