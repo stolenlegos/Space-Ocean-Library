@@ -7,6 +7,7 @@ public class MakeVisibleCeiling : MonoBehaviour
   public GameObject replacement;
   private bool neverDone = true;
   public Camera cam;
+    public Collider col;
   public Vector3 viewPos;
 
   void Update() {
@@ -21,6 +22,7 @@ public class MakeVisibleCeiling : MonoBehaviour
         replacement.SetActive(true);
         VisibilityManager.IncreaseCount();
         neverDone = false;
+        col.enabled = false;
       }
     }
 }
