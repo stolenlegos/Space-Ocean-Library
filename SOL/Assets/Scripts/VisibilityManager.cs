@@ -6,6 +6,11 @@ public class VisibilityManager : MonoBehaviour
 {
     public List<GameObject> HideThisList = new List<GameObject>();
     public PickUp pickUp;
+    public GameObject mem1Holo;
+    public GameObject mem2Holo;
+    public GameObject mem3Holo;
+    public GameObject mem4Holo;
+    public GameObject epiHolo;
 
     public static int visibleItems;
     public float IntroSoundsTimeLength;
@@ -147,7 +152,9 @@ public class VisibilityManager : MonoBehaviour
     private IEnumerator FirstMemoryTimer(){
       //make skull unable to be picked up
       allowPickUp = false;
+      mem1Holo.SetActive(true);
       yield return new WaitForSeconds(firstMemoryLength);
+      mem1Holo.SetActive(false);
       firstMemoryEnd = true;
       Debug.Log("first memory finished");
       //make skull able to be picked up
@@ -168,7 +175,9 @@ public class VisibilityManager : MonoBehaviour
     private IEnumerator SecondMemoryTimer(){
       //make items unable to be picked up
       allowPickUp = false;
+      mem2Holo.SetActive(true);
       yield return new WaitForSeconds(SecondMemoryLength);
+      mem2Holo.SetActive(false);
       secondMemoryEnd = true;
       Debug.Log("second memory finished");
       //make item able to be picked up
@@ -181,7 +190,9 @@ public class VisibilityManager : MonoBehaviour
     private IEnumerator ThirdMemoryTimer(){
       //make items unable to be picked up
       allowPickUp = false;
+      mem3Holo.SetActive(true);
       yield return new WaitForSeconds(ThirdMemoryLength);
+      mem3Holo.SetActive(false);
       ThirdMemoryEnd = true;
       Debug.Log("third memory finished");
       //make item able to be picked up
@@ -201,7 +212,9 @@ public class VisibilityManager : MonoBehaviour
     private IEnumerator FourthMemoryTimer(){
       //make items unable to be picked up
       allowPickUp = false;
+      mem4Holo.SetActive(true);
       yield return new WaitForSeconds(FourthMemoryLength);
+      mem4Holo.SetActive(false);
       fourthMemoryEnd = true;
       Debug.Log("fourth memory finished");
       //make item able to be picked up
