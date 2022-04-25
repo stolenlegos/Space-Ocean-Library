@@ -9,9 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Ocean
   m_Shader: {fileID: 4800000, guid: 986f7c6732e8a6e4881407d7f15f25c3, type: 3}
-  m_ShaderKeywords: _CAUSTICS_ON _CLIPSURFACE_ON _COMPUTEDIRECTIONALLIGHT_ON
-    _DEBUGMULTIPLYBYLIGHT0COLOR_ON _FOAM3DLIGHTING_ON _FOAM_ON _SUBSURFACEHEIGHTLERP_ON
-    _TRANSPARENCY_ON _VARYSMOOTHNESSOVERDISTANCE_ON
+  m_ShaderKeywords: _CAUSTICS_ON _COMPUTEDIRECTIONALLIGHT_ON _DEBUGMULTIPLYBYLIGHT0COLOR_ON
+    _FOAM3DLIGHTING_ON _FOAM_ON _SUBSURFACEHEIGHTLERP_ON _TRANSPARENCY_ON _UNDERWATER_ON
+    _VARYSMOOTHNESSOVERDISTANCE_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -92,11 +92,11 @@ Material:
     - _CausticsStrength: 3.2
     - _CausticsTextureAverage: 0.07
     - _CausticsTextureScale: 5
-    - _ClipSurface: 1
+    - _ClipSurface: 0
     - _ClipUnderTerrain: 0
     - _CompileShaderWithDebugInfo: 0
     - _ComputeDirectionalLight: 1
-    - _CullMode: 2
+    - _CullMode: 0
     - _DebugDisableMultiplyByLight0Color: 0
     - _DebugDisableShapeTextures: 0
     - _DebugDisableSmoothLOD: 0
@@ -157,7 +157,7 @@ Material:
     - _TexelSize: 0.125
     - _TextureRes: 1024
     - _Transparency: 1
-    - _Underwater: 0
+    - _Underwater: 1
     - _Update: 0.083
     - _VarySmoothnessOverDistance: 1
     - _WaveFoamBubblesCoverage: 1.68
