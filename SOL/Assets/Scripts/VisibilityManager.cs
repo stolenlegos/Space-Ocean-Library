@@ -6,6 +6,7 @@ public class VisibilityManager : MonoBehaviour
 {
     public List<GameObject> HideThisList = new List<GameObject>();
     public PickUp pickUp;
+    public GameObject water;
     public GameObject mem1Holo;
     public GameObject mem1HoloMesh;
     public GameObject mem2Holo;
@@ -31,12 +32,15 @@ public class VisibilityManager : MonoBehaviour
     public float preFourthMemoryLength;
     public float FourthMemoryLength;
     public float postFourthMemlength;
-    public float firstWaterLevel;
-    public float secondWaterLevel;
-    public float thirdWaterLevel;
-    public float fourthWaterLevel;
+    public Vector3 waterStart;
+    public Vector3 firstWaterLevel;
+    public Vector3 secondWaterLevel;
+    public Vector3 thirdWaterLevel;
+    public Vector3 fourthWaterLevel;
+    public Vector3 fifthWaterLevel;
 
     private int waterLevel;
+    private float t;
 
     public static bool allowWallsVisible;
     public static bool allowDeskandSkullVisible;
@@ -87,6 +91,7 @@ public class VisibilityManager : MonoBehaviour
 
         visibleItems = 0;
         waterLevel = 0;
+        t = 0;
 
         foreach (GameObject obj in HideThisList){
           obj.SetActive(false);
@@ -114,6 +119,22 @@ public class VisibilityManager : MonoBehaviour
         StartCoroutine(PickUpFirstSkull());
       }
 
+      if(waterLevel == 1) {
+        water.transform.position = Vector3.Lerp(waterStart, firstWaterLevel, t);
+        t += 0.2f * Time.deltaTime;
+      } else if(waterLevel == 2) {
+        water.transform.position = Vector3.Lerp(firstWaterLevel, secondWaterLevel, t);
+        t += 0.2f * Time.deltaTime;
+      } else if(waterLevel == 3) {
+        water.transform.position = Vector3.Lerp(secondWaterLevel, thirdWaterLevel, t);
+        t += 0.2f * Time.deltaTime;
+      } else if(waterLevel == 4) {
+        water.transform.position = Vector3.Lerp(thirdWaterLevel, fourthWaterLevel, t);
+        t += 0.2f * Time.deltaTime;
+      } else if(waterLevel == 5) {
+        water.transform.position = Vector3.Lerp(fourthWaterLevel, fifthWaterLevel, t);
+        t += 0.2f * Time.deltaTime;
+      }
       //Debug.Log(visibleItems);
     }
 
@@ -149,9 +170,16 @@ public class VisibilityManager : MonoBehaviour
 
     private IEnumerator FirstSkullDialogueTimer(){
       firstSkullAudioStarted = true;
+      StartCoroutine(FirstLineTimer());
       yield return new WaitForSeconds(firstSkullDialogueLength);
       firstSkullAudioComplete = true;
       Debug.Log("First skull dialogue finished");
+    }
+
+    private IEnumerator FirstLineTimer(){
+      yield return new WaitForSeconds(4f);
+      //raise water first time here
+      waterLevel++;
     }
 
     private IEnumerator PickUpFirstSkull(){
@@ -175,6 +203,8 @@ public class VisibilityManager : MonoBehaviour
       mem1Holo.SetActive(false);
       Debug.Log("Finish first memory post dialogue");
       //raise water second time here
+      waterLevel++;
+      t = 0;
       allowShelvesVisible = true;
     }
 
@@ -198,7 +228,9 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(postSecondMemlength);
       mem2Holo.SetActive(false);
       Debug.Log("Finish second memory post dialogue");
-      //raise water third time here;
+      waterLevel++;
+      t = 0;
+      //raise water third or fourth time here;
     }
 
     private IEnumerator ThirdMemoryTimer(){
@@ -214,7 +246,9 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(postThirdMemlength);
       mem3Holo.SetActive(false);
       Debug.Log("Finish third memory post dialogue");
-      //raise water third time here;
+      waterLevel++;
+      t = 0;
+      //raise water third or fourth time here;
     }
 
     private IEnumerator PreFourthMemoryTimer(){
@@ -237,6 +271,8 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(postFourthMemlength);
       mem4Holo.SetActive(false);
       Debug.Log("Finish Fourth memory post dialogue");
-      //raise water third time here;
+      //raise water fifth time here;
+      waterLevel++;
+      t = 0;
     }
 }
