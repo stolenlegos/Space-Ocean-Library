@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 459913293}
   - component: {fileID: 459913294}
   - component: {fileID: 459913295}
+  - component: {fileID: 459913296}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -587,10 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54adc0d710db84df682bb264ea9865ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCam: {fileID: 459913290}
-  sensitivity: 0
-  rotateSpeed: 0
-  playerInput: {fileID: 0}
+  sprintModifier: 1
 --- !u!114 &459913295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,11 +690,52 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c514ba06-bebb-4753-afe6-13578506b2fc
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33108af3-a393-4196-a5ea-344577516087
+    m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3b788d83-a454-46b2-aed3-f7783dd3b6d7
+    m_ActionName: Player/Sprint[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &459913296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459913288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &524523028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,10 +1046,34 @@ MonoBehaviour:
   - {fileID: 2066200621}
   - {fileID: 1222412232}
   - {fileID: 524523028}
-  IntroDialogueTimeLength: 10
+  pickUp: {fileID: 0}
+  mem1Holo: {fileID: 0}
+  mem1HoloMesh: {fileID: 0}
+  mem2Holo: {fileID: 0}
+  mem2HoloMesh: {fileID: 0}
+  mem3Holo: {fileID: 0}
+  mem3HoloMesh: {fileID: 0}
+  mem4Holo: {fileID: 0}
+  mem4HoloMesh: {fileID: 0}
+  epiHolo: {fileID: 0}
+  epiHoloMesh: {fileID: 0}
+  IntroSoundsTimeLength: 0
   firstSkullDialogueLength: 10
+  pickUpSkullDialogueLength: 0
   firstMemoryLength: 10
   postFirstMemlength: 10
+  preSecondMemoryLength: 0
+  SecondMemoryLength: 0
+  postSecondMemlength: 0
+  ThirdMemoryLength: 0
+  postThirdMemlength: 0
+  preFourthMemoryLength: 0
+  FourthMemoryLength: 0
+  postFourthMemlength: 0
+  firstWaterLevel: 0
+  secondWaterLevel: 0
+  thirdWaterLevel: 0
+  fourthWaterLevel: 0
 --- !u!4 &653106583
 Transform:
   m_ObjectHideFlags: 0
@@ -1296,6 +1359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   replacement: {fileID: 1040268226}
   cam: {fileID: 459913290}
+  col: {fileID: 0}
   viewPos: {x: 0, y: 0, z: 0}
 --- !u!65 &1008014580
 BoxCollider:
