@@ -7,7 +7,7 @@ public class MakeVisibleCeiling : MonoBehaviour
   public GameObject replacement;
   private bool neverDone = true;
   public Camera cam;
-    public Collider col;
+  public Collider col;
   public Vector3 viewPos;
 
   void Update() {

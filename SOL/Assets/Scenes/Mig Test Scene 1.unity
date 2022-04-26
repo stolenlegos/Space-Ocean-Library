@@ -20,9 +20,9 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.37551284, g: 0.37304202, b: 0.7830189, a: 1}
+  m_AmbientEquatorColor: {r: 0.5283019, g: 0.26366383, b: 0.17194732, a: 1}
+  m_AmbientGroundColor: {r: 0.16455911, g: 0.4811321, b: 0.16113387, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -273,6 +273,10 @@ MonoBehaviour:
   preFourthMemoryLength: 10
   FourthMemoryLength: 10
   postFourthMemlength: 10
+  firstWaterLevel: 0
+  secondWaterLevel: 0
+  thirdWaterLevel: 0
+  fourthWaterLevel: 0
 --- !u!4 &717937564
 Transform:
   m_ObjectHideFlags: 0
@@ -961,6 +965,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 444fb5ce8e2c71045b6ddf1c5c2d9982, type: 2}
+    - target: {fileID: 2361128642793731859, guid: a9701c73bf3b10f40aebd1c0c1c9922a, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 3029721381715150068, guid: a9701c73bf3b10f40aebd1c0c1c9922a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1005,10 +1013,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 6139515098913339767, guid: a9701c73bf3b10f40aebd1c0c1c9922a, type: 3}
-      propertyPath: replacement
-      value: 
-      objectReference: {fileID: 1538855924}
     - target: {fileID: 6583316081533923420, guid: a9701c73bf3b10f40aebd1c0c1c9922a, type: 3}
       propertyPath: m_RootOrder
       value: 2
