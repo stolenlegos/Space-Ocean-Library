@@ -31,6 +31,12 @@ public class VisibilityManager : MonoBehaviour
     public float preFourthMemoryLength;
     public float FourthMemoryLength;
     public float postFourthMemlength;
+    public float firstWaterLevel;
+    public float secondWaterLevel;
+    public float thirdWaterLevel;
+    public float fourthWaterLevel;
+
+    private int waterLevel;
 
     public static bool allowWallsVisible;
     public static bool allowDeskandSkullVisible;
@@ -80,6 +86,7 @@ public class VisibilityManager : MonoBehaviour
         secondSkullUsed = false;
 
         visibleItems = 0;
+        waterLevel = 0;
 
         foreach (GameObject obj in HideThisList){
           obj.SetActive(false);
