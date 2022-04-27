@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VisibilityManager : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class VisibilityManager : MonoBehaviour
 
     [Header("Epilogue Needs")]
     public GameObject StudyBaseObj;
-    public GameObject CreditsBaseObj;
+    private string CreditsScene = "Credits";
 
     private int waterLevel;
     private float t;
@@ -330,6 +331,6 @@ public class VisibilityManager : MonoBehaviour
     private IEnumerator EpilogueTimer() {
       yield return new WaitForSeconds(10f);
       StudyBaseObj.SetActive(false);
-      CreditsBaseObj.SetActive(true);
+      SceneManager.LoadScene(CreditsScene, LoadSceneMode.Additive);
     }
 }
