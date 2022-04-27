@@ -3,7 +3,12 @@ guid: 0c963d88fc54da94b86a32c9b3a33feb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spidermanheadplush
+    second: {fileID: 2100000, guid: 1ff8e19cec563114ab7371a7b6254d49, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
