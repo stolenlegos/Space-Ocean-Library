@@ -7,6 +7,7 @@ public class VisibilityManager : MonoBehaviour
     public List<GameObject> HideThisList = new List<GameObject>();
     public PickUp pickUp;
     public GameObject water;
+    public Material waterMat;
     public GameObject mem1Holo;
     public GameObject mem1HoloMesh;
     public GameObject mem2Holo;
@@ -38,6 +39,8 @@ public class VisibilityManager : MonoBehaviour
     public Vector3 thirdWaterLevel;
     public Vector3 fourthWaterLevel;
     public Vector3 fifthWaterLevel;
+    public Color yellow;
+    public Color orange;
 
     private int waterLevel;
     private float t;
@@ -180,6 +183,8 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(4f);
       //raise water first time here
       waterLevel++;
+      //waterMat.ScatterColourBase = yellow;
+      //waterMat.ScatterColourGrazing = orange;
     }
 
     private IEnumerator PickUpFirstSkull(){
