@@ -4,10 +4,29 @@ using UnityEngine;
 
 public class VisibilityManager : MonoBehaviour
 {
+    [Header("Objs to turn off at start of game")]
     public List<GameObject> HideThisList = new List<GameObject>();
+
+    [Header("Player's Interacable Script")]
     public PickUp pickUp;
+
+    [Header("Water Stuff")]
     public GameObject water;
     public Material waterMat;
+    public Color yellow;
+    public Color orange;
+    public Color blueOne;
+    public Color blueTwo;
+
+    [Header("Water Heights")]
+    public Vector3 waterStart;
+    public Vector3 firstWaterLevel;
+    public Vector3 secondWaterLevel;
+    public Vector3 thirdWaterLevel;
+    public Vector3 fourthWaterLevel;
+    public Vector3 fifthWaterLevel;
+
+    [Header("Memory Holograms")]
     public GameObject mem1Holo;
     public GameObject mem1HoloMesh;
     public GameObject mem2Holo;
@@ -20,6 +39,8 @@ public class VisibilityManager : MonoBehaviour
     public GameObject epiHoloMesh;
 
     public static int visibleItems;
+
+    [Header("Audio Timings")]
     public float IntroSoundsTimeLength;
     public float firstSkullDialogueLength;
     public float pickUpSkullDialogueLength;
@@ -33,16 +54,10 @@ public class VisibilityManager : MonoBehaviour
     public float preFourthMemoryLength;
     public float FourthMemoryLength;
     public float postFourthMemlength;
-    public Vector3 waterStart;
-    public Vector3 firstWaterLevel;
-    public Vector3 secondWaterLevel;
-    public Vector3 thirdWaterLevel;
-    public Vector3 fourthWaterLevel;
-    public Vector3 fifthWaterLevel;
-    public Color yellow;
-    public Color orange;
-    public Color blueOne;
-    public Color blueTwo;
+
+    [Header("Audio Objects")]
+    public GameObject AudioBlockOne;
+    public GameObject AudioBlockTwo;
 
     private int waterLevel;
     private float t;
@@ -129,6 +144,7 @@ public class VisibilityManager : MonoBehaviour
 
       if (firstSkullAudioComplete && !pickUpSkullAudioStarted && pickUp.heldObj.tag == "Skull") {
         StartCoroutine(PickUpFirstSkull());
+        AudioBlockTwo.SetActive(true);
       }
 
       if(waterLevel == 1) {
@@ -182,6 +198,7 @@ public class VisibilityManager : MonoBehaviour
 
     private IEnumerator FirstSkullDialogueTimer(){
       firstSkullAudioStarted = true;
+      AudioBlockOne.SetActive(true);
       StartCoroutine(FirstLineTimer());
       yield return new WaitForSeconds(firstSkullDialogueLength);
       firstSkullAudioComplete = true;
@@ -189,15 +206,16 @@ public class VisibilityManager : MonoBehaviour
     }
 
     private IEnumerator FirstLineTimer(){
-      yield return new WaitForSeconds(4f);
+      yield return new WaitForSeconds(6.25f);
       //raise water first time here
       waterLevel++;
-      waterMat.SetColor("_Diffuse", yellow);
-      waterMat.SetColor("_DiffuseGrazing", orange);
+      // waterMat.SetColor("_Diffuse", yellow);
+      // waterMat.SetColor("_DiffuseGrazing", orange);
     }
 
     private IEnumerator PickUpFirstSkull(){
       pickUpSkullAudioStarted = true;
+      //AudioBlockTwo.SetActive(true);
       yield return new WaitForSeconds(pickUpSkullDialogueLength);
       pickUpSkullAudioComplete = true;
       Debug.Log("Skull Pick up Audio finished");
