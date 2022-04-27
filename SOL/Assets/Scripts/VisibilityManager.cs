@@ -41,6 +41,8 @@ public class VisibilityManager : MonoBehaviour
     public Vector3 fifthWaterLevel;
     public Color yellow;
     public Color orange;
+    public Color blueOne;
+    public Color blueTwo;
 
     private int waterLevel;
     private float t;
@@ -103,6 +105,13 @@ public class VisibilityManager : MonoBehaviour
 
     void Start() {
       StartCoroutine(IntroSoundsTimer());
+      waterMat.SetColor("_Diffuse", blueOne);
+      waterMat.SetColor("_DiffuseGrazing", blueTwo);
+    }
+
+    void OnDestroy() {
+      waterMat.SetColor("_Diffuse", blueOne);
+      waterMat.SetColor("_DiffuseGrazing", blueTwo);
     }
 
     void Update(){
@@ -183,8 +192,8 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(4f);
       //raise water first time here
       waterLevel++;
-      //waterMat.ScatterColourBase = yellow;
-      //waterMat.ScatterColourGrazing = orange;
+      waterMat.SetColor("_Diffuse", yellow);
+      waterMat.SetColor("_DiffuseGrazing", orange);
     }
 
     private IEnumerator PickUpFirstSkull(){
