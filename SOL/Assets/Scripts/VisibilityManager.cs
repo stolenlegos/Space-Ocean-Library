@@ -61,6 +61,10 @@ public class VisibilityManager : MonoBehaviour
     public GameObject AudioBlockFour;
     public GameObject AudioBlockSeven;
 
+    [Header("Epilogue Needs")]
+    public GameObject StudyBaseObj;
+    public GameObject CreditsBaseObj;
+
     private int waterLevel;
     private float t;
 
@@ -166,6 +170,11 @@ public class VisibilityManager : MonoBehaviour
         waterMat.SetColor("_Diffuse", Color.Lerp(blueOne, yellow, t));
         waterMat.SetColor("_DiffuseGrazing", Color.Lerp(blueTwo, orange, t));
         t += 0.2f * Time.deltaTime;
+      }
+
+      if (fourthMemoryEnd && t >= 1) {
+        epiHolo.SetActive(true);
+        StartCoroutine(EpilogueTimer());
       }
       //Debug.Log(visibleItems);
     }
@@ -305,16 +314,22 @@ public class VisibilityManager : MonoBehaviour
       mem4Holo.SetActive(true);
       yield return new WaitForSeconds(FourthMemoryLength);
       mem4HoloMesh.SetActive(false);
-      fourthMemoryEnd = true;
       mem4Holo.GetComponent<AudioSource>().spatialBlend = 0;
       Debug.Log("fourth memory finished");
       //make item able to be picked up
       yield return new WaitForSeconds(postFourthMemlength);
+      fourthMemoryEnd = true;
       allowPickUp = true;
       mem4Holo.SetActive(false);
       Debug.Log("Finish Fourth memory post dialogue");
       //raise water fifth time here;
       waterLevel++;
       t = 0;
+    }
+
+    private IEnumerator EpilogueTimer() {
+      yield return new WaitForSeconds(10f);
+      StudyBaseObj.SetActive(false);
+      CreditsBaseObj.SetActive(true);
     }
 }
