@@ -58,6 +58,8 @@ public class VisibilityManager : MonoBehaviour
     [Header("Audio Objects")]
     public GameObject AudioBlockOne;
     public GameObject AudioBlockTwo;
+    public GameObject AudioBlockFour;
+    public GameObject AudioBlockSeven;
 
     private int waterLevel;
     private float t;
@@ -161,6 +163,8 @@ public class VisibilityManager : MonoBehaviour
         t += 0.2f * Time.deltaTime;
       } else if(waterLevel == 5) {
         water.transform.position = Vector3.Lerp(fourthWaterLevel, fifthWaterLevel, t);
+        waterMat.SetColor("_Diffuse", Color.Lerp(blueOne, yellow, t));
+        waterMat.SetColor("_DiffuseGrazing", Color.Lerp(blueTwo, orange, t));
         t += 0.2f * Time.deltaTime;
       }
       //Debug.Log(visibleItems);
@@ -228,10 +232,11 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(firstMemoryLength);
       mem1HoloMesh.SetActive(false);
       firstMemoryEnd = true;
+      mem1Holo.GetComponent<AudioSource>().spatialBlend = 0;
       Debug.Log("first memory finished");
       //make skull able to be picked up
-      allowPickUp = true;
       yield return new WaitForSeconds(postFirstMemlength);
+      allowPickUp = true;
       mem1Holo.SetActive(false);
       Debug.Log("Finish first memory post dialogue");
       //raise water second time here
@@ -242,6 +247,7 @@ public class VisibilityManager : MonoBehaviour
 
     private IEnumerator PreSecondMemoryTimer(){
       preSecondMemoryStart = true;
+      AudioBlockFour.SetActive(true);
       yield return new WaitForSeconds(preSecondMemoryLength);
       preSecondMemoryEnd = true;
       Debug.Log("pre second memory finished");
@@ -253,12 +259,13 @@ public class VisibilityManager : MonoBehaviour
       mem2Holo.SetActive(true);
       yield return new WaitForSeconds(SecondMemoryLength);
       mem2HoloMesh.SetActive(false);
-      secondMemoryEnd = true;
+      mem2Holo.GetComponent<AudioSource>().spatialBlend = 0;
       Debug.Log("second memory finished");
       //make item able to be picked up
-      allowPickUp = true;
       yield return new WaitForSeconds(postSecondMemlength);
+      allowPickUp = true;
       mem2Holo.SetActive(false);
+      secondMemoryEnd = true;
       Debug.Log("Finish second memory post dialogue");
       waterLevel++;
       t = 0;
@@ -271,12 +278,13 @@ public class VisibilityManager : MonoBehaviour
       mem3Holo.SetActive(true);
       yield return new WaitForSeconds(ThirdMemoryLength);
       mem3HoloMesh.SetActive(false);
-      ThirdMemoryEnd = true;
+      mem3Holo.GetComponent<AudioSource>().spatialBlend = 0;
       Debug.Log("third memory finished");
       //make item able to be picked up
-      allowPickUp = true;
       yield return new WaitForSeconds(postThirdMemlength);
+      allowPickUp = true;
       mem3Holo.SetActive(false);
+      ThirdMemoryEnd = true;
       Debug.Log("Finish third memory post dialogue");
       waterLevel++;
       t = 0;
@@ -285,6 +293,7 @@ public class VisibilityManager : MonoBehaviour
 
     private IEnumerator PreFourthMemoryTimer(){
       preFourthMemoryStart = true;
+      AudioBlockSeven.SetActive(true);
       yield return new WaitForSeconds(preFourthMemoryLength);
       Debug.Log("Finish pre fourth Memory");
       preFourthMemoryEnd = true;
@@ -297,10 +306,11 @@ public class VisibilityManager : MonoBehaviour
       yield return new WaitForSeconds(FourthMemoryLength);
       mem4HoloMesh.SetActive(false);
       fourthMemoryEnd = true;
+      mem4Holo.GetComponent<AudioSource>().spatialBlend = 0;
       Debug.Log("fourth memory finished");
       //make item able to be picked up
-      allowPickUp = true;
       yield return new WaitForSeconds(postFourthMemlength);
+      allowPickUp = true;
       mem4Holo.SetActive(false);
       Debug.Log("Finish Fourth memory post dialogue");
       //raise water fifth time here;
