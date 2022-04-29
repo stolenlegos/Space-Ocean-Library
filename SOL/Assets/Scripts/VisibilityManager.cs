@@ -9,7 +9,7 @@ public class VisibilityManager : MonoBehaviour
     public List<GameObject> HideThisList = new List<GameObject>();
 
     [Header("Player's Interacable Script")]
-    public PickUp pickUp;
+    public SkullParent skullParent;
 
     [Header("Water Stuff")]
     public GameObject water;
@@ -149,7 +149,7 @@ public class VisibilityManager : MonoBehaviour
         StartCoroutine(PreFourthMemoryTimer());
       }
 
-      if (firstSkullAudioComplete && !pickUpSkullAudioStarted && pickUp.heldObj.tag == "Skull") {
+      if (firstSkullAudioComplete && !pickUpSkullAudioStarted && skullParent.beingHeld) {
         StartCoroutine(PickUpFirstSkull());
         AudioBlockTwo.SetActive(true);
       }
@@ -175,7 +175,7 @@ public class VisibilityManager : MonoBehaviour
 
       if (fourthMemoryEnd && t >= 1) {
         epiHolo.SetActive(true);
-        StartCoroutine(EpilogueTimer());
+        //StartCoroutine(EpilogueTimer());
       }
       //Debug.Log(visibleItems);
     }
@@ -327,10 +327,11 @@ public class VisibilityManager : MonoBehaviour
       waterLevel++;
       t = 0;
     }
-
+  /*
     private IEnumerator EpilogueTimer() {
       yield return new WaitForSeconds(10f);
       StudyBaseObj.SetActive(false);
       SceneManager.LoadScene(CreditsScene, LoadSceneMode.Additive);
     }
+    */
 }

@@ -9,11 +9,16 @@ TagManager:
   - Radio
   - Plush
   - Skull_Second
+  - projectile
+  - FxTemporaire
+  - RHand
+  - LHand
+  - Hand
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - teleport
   - Water
   - UI
   - 
